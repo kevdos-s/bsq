@@ -6,7 +6,7 @@
 /*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 14:46:14 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/15 20:12:41 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/15 20:48:35 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ t_map	*get_map_from_path(char *path)
 	int		reading;
 	int		file;
 	char	buffer;
-	t_map	*map_ctx;
 
+	// t_map	*map_ctx;
 	file = open(path, 0);
 	if (file == -1)
 		return (0);
