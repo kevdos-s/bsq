@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:51:19 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/15 14:49:43 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/15 19:59:49 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main(int argc, char **argv)
-{
+// int main(int argc, char **argv)
+// {
 
-}
+// }
