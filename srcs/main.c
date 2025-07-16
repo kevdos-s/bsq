@@ -6,7 +6,7 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:51:19 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 12:46:33 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 13:25:37 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,15 @@ int	main(int argc, char **argv)
 	map = (t_map *)malloc(nb_map * sizeof(t_map *));
 	ft_check_args_n_fill(argv, argc, &map);
 	current = 0;
-	while(current < nb_map)
+	while (current < nb_map)
 	{
 		if (map[current].is_valid)
 		{
+			solve(&map[current]);
 			ft_print_map(map, 0);
-			// solve(&map[current], , map[current].size_row, map[current].size_col);
 		}
 		else
-		{
 			ft_error(ERROR_MAP_MSG);
-		}
 		current++;
 	}
-
 }
