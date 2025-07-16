@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   free.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:02:22 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 13:05:07 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 20:53:31 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "global.h"
-
 #ifndef FREE_H
 # define FREE_H
-void ft_free_t_map(t_map *map);
+
+# include "global.h"
+
+void	ft_free_t_map(t_map *map);
 
 #endif
