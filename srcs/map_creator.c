@@ -6,7 +6,7 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 19:38:26 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 18:42:49 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 18:44:11 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	fill_map(char *content_file, t_map *map)
 	int		current_map_row;
 
 	current_map_row = 0;
-	nb_lines = ft_count_multi_sep(content_file, "\n\\n");
-	lines_of_file = ft_split(content_file, "\n\\n");
+	nb_lines = ft_count_multi_sep(content_file, "\n\\");
+	lines_of_file = ft_split(content_file, "\n\\");
 	current_line = 1;
 	// TODO check first line is correct
 	ft_fill_first_line(lines_of_file[0], map);
