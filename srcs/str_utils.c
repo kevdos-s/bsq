@@ -6,7 +6,7 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 20:55:25 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 09:58:09 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 11:14:31 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,16 @@ int ft_atoi(char *str)
 		current++;
 	}
 	return (result);
+}
+int ft_count_nb(char *str)
+{
+	int current;
+
+	current = 0;
+
+	while (str[current] >= '0' && str[current] <= '9')
+	{
+		current++;
+	}
+	return (current);
 }
