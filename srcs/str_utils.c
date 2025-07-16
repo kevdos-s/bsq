@@ -6,7 +6,7 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 20:55:25 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 18:14:50 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 18:58:57 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,14 @@ int	ft_count_multi_sep(char *str, char *sep)
 	}
 	return (result);
 }
-int	ft_atoi(char *str)
+int	ft_natoi(char *str, int limit)
 {
 	int	result;
 	int	current;
 
 	result = 0;
 	current = 0;
-	while (str[current] >= '0' && str[current] <= '9')
+	while ((str[current] >= '0' && str[current] <= '9') && current < limit)
 	{
 		result = (result * 10) + (str[current] - 48);
 		current++;
