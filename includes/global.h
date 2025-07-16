@@ -6,7 +6,7 @@
 /*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:51:16 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 20:55:39 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 20:56:20 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
+
 typedef struct s_point
 {
 	int		row;
