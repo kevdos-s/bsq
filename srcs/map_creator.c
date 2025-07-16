@@ -6,12 +6,13 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 19:38:26 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 11:20:05 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 11:51:04 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "global.h"
 #include "str_utils.h"
+#include "map_creator.h"
 
 void	fill_map(char *content_file, t_map *map)
 {
