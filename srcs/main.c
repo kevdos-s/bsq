@@ -6,7 +6,7 @@
 /*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:51:19 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 22:13:38 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 22:18:36 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,4 @@ int	main(int argc, char **argv)
 		ft_check_args_n_fill(argv, argc, &map);
 		compute_file_input(argc - 1, map);
 	}
-	// ft_free_t_map(map);
 }

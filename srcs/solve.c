@@ -6,7 +6,7 @@
 /*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 16:43:37 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 21:52:03 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 22:23:39 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,31 @@ void	set_solution_to_map(t_map *map_ctx, t_dp_ctx *dp_ctx)
 	}
 }
 
+void	solve_cols(int row, t_map *map_ctx, t_dp_ctx *dp_ctx)
+{
+	int	min_arr[3];
+	int	j;
+
+	j = 1;
+	while (j < map_ctx->size_col)
+	{
+		if (map_ctx->map[row][j] == map_ctx->empty_char)
+		{
+			min_arr[0] = map_ctx->dp_map[row - 1][j];
+			min_arr[1] = map_ctx->dp_map[row][j - 1];
+			min_arr[2] = map_ctx->dp_map[row - 1][j - 1];
+			get_min_dp_current_value((t_min_ctx){map_ctx, row, j, min_arr,
+				&dp_ctx->max_size, &dp_ctx->max_i, &dp_ctx->max_j});
+		}
+		else
+			map_ctx->dp_map[row][j] = 0;
+		j++;
+	}
+}
+
 void	solve(t_map *map_ctx)
 {
 	int			i;
-	int			j;
-	int			min_arr[3];
 	t_dp_ctx	*dp_ctx;
 
 	dp_ctx = NULL;
@@ -61,21 +81,7 @@ void	solve(t_map *map_ctx)
 	i = 1;
 	while (i < map_ctx->size_row)
 	{
-		j = 1;
-		while (j < map_ctx->size_col)
-		{
-			if (map_ctx->map[i][j] == map_ctx->empty_char)
-			{
-				min_arr[0] = map_ctx->dp_map[i - 1][j];
-				min_arr[1] = map_ctx->dp_map[i][j - 1];
-				min_arr[2] = map_ctx->dp_map[i - 1][j - 1];
-				get_min_dp_current_value((t_min_ctx){map_ctx, i, j, min_arr,
-					&dp_ctx->max_size, &dp_ctx->max_i, &dp_ctx->max_j});
-			}
-			else
-				map_ctx->dp_map[i][j] = 0;
-			j++;
-		}
+		solve_cols(i, map_ctx, dp_ctx);
 		i++;
 	}
 	set_solution_to_map(map_ctx, dp_ctx);
