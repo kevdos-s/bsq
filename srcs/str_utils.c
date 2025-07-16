@@ -6,13 +6,46 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 20:55:25 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 20:22:43 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 23:03:18 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "global.h"
+#include "str_utils.h"
 #include <stdlib.h>
 
+/**
+ * Function taht concatenates two strings
+ * S1 is the prefix
+ * S2 is the suffix
+ */
+char	*ft_strconcat(char *dest, char *src)
+{
+	int		current;
+	int		len_dest;
+	int		result_len;
+	char	*result;
+
+	len_dest = ft_strlength(dest);
+	printf("%d", len_dest);
+	result_len = len_dest + ft_strlength(src);
+	result = malloc(result_len * sizeof(char));
+	current = 0;
+	while (dest[current])
+	{
+		result[current] = dest[current];
+		current++;
+	}
+	current = 0;
+	while (src[current])
+	{
+		result[len_dest] = src[current];
+		current++;
+		len_dest++;
+	}
+	result[len_dest] = '\0';
+	return (result);
+}
 int	ft_strlength(char *str)
 {
 	int	current;
@@ -23,37 +56,6 @@ int	ft_strlength(char *str)
 		current++;
 	}
 	return (current);
-}
-
-/**
- * Function taht concatenates two strings
- * S1 is the prefix
- * S2 is the suffix
- */
-char	*ft_strconcat(char *s1, char *s2)
-{
-	int		current;
-	int		len_dest;
-	int		result_len;
-	char	*result;
-
-	len_dest = ft_strlength(s1);
-	result_len = len_dest + ft_strlength(s2);
-	result = malloc(result_len * sizeof(char));
-	current = 0;
-	while (s1[current])
-	{
-		result[current] = s1[current];
-		current++;
-	}
-	current = 0;
-	while (s2[current])
-	{
-		result[len_dest + current] = s2[current];
-		current++;
-	}
-	result[result_len] = '\0';
-	return (result);
 }
 
 int	ft_count_sep(char *str, char sep)

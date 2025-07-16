@@ -6,7 +6,7 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:51:16 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 20:09:22 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 23:03:15 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define GLOBAL_H
 
 # include <fcntl.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 typedef struct s_point

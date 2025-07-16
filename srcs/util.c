@@ -6,7 +6,7 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 17:30:26 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 20:08:07 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 22:50:55 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,13 @@ void	ft_putnb(int nb)
 char	*ft_cpy_w_malloc(char *str)
 {
 	int		current;
-	char	*result;
 	int		len_str;
+	char	*result;
 
 	len_str = ft_strlength(str);
 	result = malloc(len_str * sizeof(char));
-	if (len_str == 0)
-		result[0] = '\0';
+	// if (len_str == 0)
+	// 	result[0] = '\0';
 	current = 0;
 	while (str[current])
 	{
