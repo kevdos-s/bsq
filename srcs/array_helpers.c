@@ -6,14 +6,14 @@
 /*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 17:14:56 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/15 17:16:00 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 22:24:16 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	min(int *args, int size)
 {
-	int i;
-	int min;
+	int	i;
+	int	min;
 
 	i = 1;
 	min = args[0];
