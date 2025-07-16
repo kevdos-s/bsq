@@ -6,12 +6,12 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 20:55:25 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 12:54:43 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 16:17:57 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "global.h"
+#include <stdlib.h>
 
 int	ft_strlength(char *str)
 {
@@ -48,7 +48,7 @@ char	*ft_strdup(char *dest, char *src)
 		current++;
 		len_dest++;
 	}
-	result[current] = '\0';
+	result[len_dest] = '\0';
 	return (result);
 }
 
@@ -69,10 +69,10 @@ int	ft_count_sep(char *str, char sep)
 	}
 	return (result);
 }
-int ft_atoi(char *str)
+int	ft_atoi(char *str)
 {
-	int result;
-	int current;
+	int	result;
+	int	current;
 
 	result = 0;
 	current = 0;
@@ -83,22 +83,21 @@ int ft_atoi(char *str)
 	}
 	return (result);
 }
-int ft_count_nb(char *str)
+int	ft_count_nb(char *str)
 {
-	int current;
+	int	current;
 
 	current = 0;
-
 	while (str[current] >= '0' && str[current] <= '9')
 	{
 		current++;
 	}
 	return (current);
 }
-void ft_print_map(t_map *map, int print_dp)
+void	ft_print_map(t_map *map, int print_dp)
 {
-	int current_line;
-	int current_col;
+	int	current_line;
+	int	current_col;
 
 	current_line = 0;
 	while (current_line < map->size_row)
@@ -114,7 +113,6 @@ void ft_print_map(t_map *map, int print_dp)
 			{
 				ft_putchar(map->map[current_line][current_col]);
 			}
-
 			current_col++;
 		}
 		ft_putchar('\n');

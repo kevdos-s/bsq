@@ -1,35 +1,53 @@
 {
-  "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug Current File",
-      "type": "lldb",
-      "request": "launch",
-      "program": "${fileDirname}/${fileBasenameNoExtension}",
-      "args": [],
-      "cwd": "${fileDirname}",
-      "preLaunchTask": "build current file",
-      "terminal": "integrated"
-    },
-    {
-      "name": "Debug do-op File",
-      "type": "lldb",
-      "request": "launch",
-      "program": "${workspaceFolder}/C11/ex05/do-op",
-      "args": ["2", "*", "2"],
-      "cwd": "${fileDirname}",
-      "preLaunchTask": "build current file",
-      "terminal": "integrated"
-    },
-    {
-      "name": "Debug BSQ",
-      "type": "lldb",
-      "request": "launch",
-      "program": "${workspaceFolder}/BSQ/bsq",
-      "args": ["/Users/antonio/Documents/School/42/piscine/BSQ/maps/5000.txt"],
-      "cwd": "${fileDirname}",
+      "name": "(gdb) Attach",
+      "type": "cppdbg",
+      "request": "attach",
+      "program": "${workspaceFolder}/bsq",
+      "MIMode": "gdb",
       "preLaunchTask": "make all",
-      "terminal": "integrated"
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "C/C++: gcc build and debug active file",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/bsq",
+      "args": [
+        "${workspaceFolder}/maps/5000.txt"
+      ],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "make all",
+      "miDebuggerPath": "/usr/bin/gdb"
     }
-  ]
+  ],
+  "version": "2.0.0"
 }
