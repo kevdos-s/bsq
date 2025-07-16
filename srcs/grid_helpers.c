@@ -6,10 +6,11 @@
 /*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 16:43:37 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 21:53:45 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 22:10:14 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "check.h"
 #include "solve.h"
 #include "stdlib.h"
 

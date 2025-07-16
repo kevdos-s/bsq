@@ -6,7 +6,7 @@
 /*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 21:17:09 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 21:38:48 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 21:59:08 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,10 @@ int	ft_is_sep(char to_test, char *str_sep)
 
 char	*ft_strconcat(char *s1, char *s2)
 {
+	char *result;
 	int current;
 	int len_dest;
 	int result_len;
-	char *result;
 
 	len_dest = ft_strlength(s1);
 	result_len = len_dest + ft_strlength(s2);
