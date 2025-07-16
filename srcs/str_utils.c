@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 20:55:25 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 16:17:57 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 17:13:14 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,34 @@ int	ft_strlength(char *str)
 	return (current);
 }
 
-char	*ft_strdup(char *dest, char *src)
+/**
+ * Function taht concatenates two strings
+ * S1 is the prefix
+ * S2 is the suffix
+ */
+char	*ft_strconcat(char *s1, char *s2)
 {
 	int		current;
 	int		len_dest;
 	int		result_len;
 	char	*result;
 
-	len_dest = ft_strlength(dest);
-	result_len = len_dest + ft_strlength(src);
+	len_dest = ft_strlength(s1);
+	result_len = len_dest + ft_strlength(s2);
 	result = malloc(result_len * sizeof(char));
 	current = 0;
-	while (dest[current])
+	while (s1[current])
 	{
-		result[current] = dest[current];
+		result[current] = s1[current];
 		current++;
 	}
 	current = 0;
-	while (src[current])
+	while (s2[current])
 	{
-		result[len_dest] = src[current];
+		result[len_dest + current] = s2[current];
 		current++;
-		len_dest++;
 	}
-	result[len_dest] = '\0';
+	result[result_len] = '\0';
 	return (result);
 }
 

@@ -6,7 +6,7 @@
 /*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:51:16 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 13:31:58 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 17:03:50 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "global.h"
 
-char	*ft_strdup(char *dest, char *src);
+char	*ft_strconcat(char *dest, char *src);
 int		ft_count_sep(char *str, char sep);
 int		ft_atoi(char *str);
 int		ft_count_nb(char *str);

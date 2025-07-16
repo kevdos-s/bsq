@@ -6,7 +6,7 @@
 /*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 16:43:37 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 14:58:09 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 19:21:57 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	solve(t_map *map_ctx)
 	t_dp_ctx	*dp_ctx;
 
 	dp_ctx = NULL;
-	init_dp_grid(map_ctx);
+	// init_dp_grid(map_ctx);
 	init_dp_ctx(&dp_ctx);
 	i = 1;
 	while (i < map_ctx->size_row)
