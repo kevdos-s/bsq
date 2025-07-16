@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solve.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
+/*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 16:43:37 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/15 19:59:30 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 13:00:41 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	solve(t_map *map_ctx, int *max_size, int *max_i, int *max_j)
 	int	min_arr[3];
 
 	init_dp_grid(map_ctx);
-	i = 1;
+	i = 1; //tu devras surement changer ca a 0 TODO
 	while (i < map_ctx->size_row)
 	{
 		j = 1;
