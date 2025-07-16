@@ -6,7 +6,7 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 16:43:37 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 16:33:07 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 16:42:56 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	free_dp_grid(t_map *map_ctx)
 	i = 0;
 	while (i < map_ctx->size_row)
 	{
-		// free(map_ctx->dp_map[i]);
+		free(map_ctx->dp_map[i]);
 		i++;
 	}
-	// free(map_ctx->dp_map);
+	free(map_ctx->dp_map);
 }

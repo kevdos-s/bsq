@@ -6,7 +6,7 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 17:30:26 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 19:32:59 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 20:08:07 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,32 +77,36 @@ void	ft_putnb(int nb)
 
 char	*ft_cpy_w_malloc(char *str)
 {
-	int		i;
+	int		current;
 	char	*result;
+	int		len_str;
 
-	result = malloc(ft_strlength(str) * sizeof(char));
-	i = 0;
-	while (str[i])
+	len_str = ft_strlength(str);
+	result = malloc(len_str * sizeof(char));
+	if (len_str == 0)
+		result[0] = '\0';
+	current = 0;
+	while (str[current])
 	{
-		result[i] = str[i];
-		i++;
+		result[current] = str[current];
+		current++;
 	}
-	result[i] = '\0';
+	result[current] = '\0';
 	return (result);
 }
 
-char	**ft_split(char *str, char separator)
+char	**ft_split(char *str, char *separator)
 {
 	char	**tab;
 	int		size_tab;
 
-	size_tab = ft_count_sep(str, separator);
+	size_tab = ft_count_multi_sep(str, separator);
 	tab = (char **)malloc(size_tab * sizeof(char *));
 	ft_split_second_part(str, separator, tab, 0);
 	return (tab);
 }
 
-void	ft_split_second_part(char *str, char sep, char **tab, int curr_str)
+void	ft_split_second_part(char *str, char *sep, char **tab, int curr_str)
 {
 	int	curr_tab_str;
 	int	l_start_pos;
@@ -113,7 +117,7 @@ void	ft_split_second_part(char *str, char sep, char **tab, int curr_str)
 	l_current_index_tab = 0;
 	while (str[curr_str] != '\0')
 	{
-		if (str[curr_str] == sep || str[curr_str + 1] == '\0')
+		if (ft_is_sep(str[curr_str], sep) || str[curr_str + 1] == '\0')
 		{
 			if (str[curr_str + 1] == '\0')
 				curr_str++;
@@ -126,10 +130,29 @@ void	ft_split_second_part(char *str, char sep, char **tab, int curr_str)
 				l_start_pos++;
 			}
 			tab[l_current_index_tab][curr_tab_str] = '\0';
+			if (str[curr_str] == '\\' && str[curr_str + 1] == 'n')
+			{
+				l_start_pos++;
+				curr_str++;
+			}
 			l_start_pos++;
 			l_current_index_tab++;
 			curr_tab_str = 0;
 		}
 		curr_str++;
 	}
+}
+
+int	ft_is_sep(char to_test, char *str_sep)
+{
+	int	current;
+
+	current = 0;
+	while (str_sep[current])
+	{
+		if (str_sep[current] == to_test)
+			return (1);
+		current++;
+	}
+	return (0);
 }

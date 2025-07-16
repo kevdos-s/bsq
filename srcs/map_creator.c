@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_creator.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
+/*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 19:38:26 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 14:08:31 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 19:04:30 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	fill_map(char *content_file, t_map *map)
 	int		current_map_row;
 
 	current_map_row = 0;
-	nb_lines = ft_count_sep(content_file, '\n');
-	lines_of_file = ft_split(content_file, '\n');
+	nb_lines = ft_count_multi_sep(content_file, "\n\\");
+	lines_of_file = ft_split(content_file, "\n\\");
 	current_line = 1;
 	// TODO check first line is correct
 	ft_fill_first_line(lines_of_file[0], map);
@@ -47,11 +47,13 @@ void	fill_map(char *content_file, t_map *map)
 }
 void	ft_fill_first_line(char *first_line, t_map *map)
 {
-	int	index_nb_stop;
+	int	len_str;
+	int	diff;
 
-	index_nb_stop = ft_count_nb(first_line);
-	map->size_row = ft_atoi(first_line);
-	map->empty_char = first_line[index_nb_stop];
-	map->obstacle_char = first_line[index_nb_stop + 1];
-	map->fill_char = first_line[index_nb_stop + 2];
+	len_str = ft_strlength(first_line);
+	diff = len_str - 3;
+	map->size_row = ft_natoi(first_line, diff);
+	map->empty_char = first_line[len_str - 3];
+	map->obstacle_char = first_line[len_str - 2];
+	map->fill_char = first_line[len_str - 1];
 }

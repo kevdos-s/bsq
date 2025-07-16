@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_utils.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
+/*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:51:16 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 17:03:50 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 20:07:55 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@
 
 char	*ft_strconcat(char *dest, char *src);
 int		ft_count_sep(char *str, char sep);
-int		ft_atoi(char *str);
+int		ft_natoi(char *str, int limit);
 int		ft_count_nb(char *str);
 void	ft_print_map(t_map *map, int print_dp);
 void	ft_print_map(t_map *map, int print_dp);
+int		ft_is_sep(char to_test, char *str_sep);
+int		ft_count_multi_sep(char *str, char *sep);
+
 #endif
