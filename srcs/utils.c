@@ -6,9 +6,11 @@
 /*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 21:17:09 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 21:17:10 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 21:38:48 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "str_utils.h"
 
 char	*ft_cpy_w_malloc(char *str)
 {

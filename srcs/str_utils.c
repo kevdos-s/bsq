@@ -6,11 +6,12 @@
 /*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 20:55:25 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 21:00:06 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 21:40:27 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "global.h"
+#include "print_utils.h"
 #include <stdlib.h>
 
 int	ft_strlength(char *str)

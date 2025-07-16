@@ -6,51 +6,85 @@
 /*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 16:43:37 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 13:49:13 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 21:53:45 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solve.h"
 #include "stdlib.h"
 
-/**
- * Allocates memory for the dynamic programming (DP) grid in the map context.
- *
- * This function initializes the dp_map field of the map_ctx structure,
- * allocating enough memory for a 2D grid with dimensions size_row x size_col.
- * Each element in the DP grid is an integer.
- * We set a fixed 1 value on the first row and column of the DP grid.
- *
- * @param map_ctx A pointer to the map context structure which holds the DP grid
- *                and related map information.
- */
-
-void	init_dp_grid(t_map *map_ctx)
+void	init_map_tables(t_map *map)
 {
 	int	i;
 	int	j;
 
-	map_ctx->dp_map = malloc(sizeof(int *) * map_ctx->size_row);
-	if (map_ctx->dp_map == NULL)
-		return ;
+	map->map = malloc(map->size_row * sizeof(char *));
+	map->dp_map = malloc(map->size_row * sizeof(int *));
 	i = 0;
-	while (i < map_ctx->size_row)
+	while (i < map->size_row)
 	{
-		map_ctx->dp_map[i] = malloc(sizeof(int) * map_ctx->size_col);
-		if (map_ctx->dp_map[i] == NULL)
-			return ;
+		map->map[i] = malloc(map->size_col * sizeof(char));
+		map->dp_map[i] = malloc(map->size_col * sizeof(int));
+		i++;
+	}
+	j = 0;
+	i = 0;
+	while (i < map->size_row)
+	{
 		j = 0;
-		while (j < map_ctx->size_col)
+		while (j < map->size_col)
 		{
-			if (i == 0 || j == 0)
-				map_ctx->dp_map[i][j] = 1;
-			else
-				map_ctx->dp_map[i][j] = 0;
-			// TODO: refactor: map_ctx->dp_map[i][j] = i == 0 || j == 0;
+			map->map[i][j] = map->empty_char;
+			map->dp_map[i][j] = i == 0 || j == 0;
 			j++;
 		}
 		i++;
 	}
+}
+
+int	fill_table_line(int row, char *grid_line, t_map *map)
+{
+	int	j;
+
+	j = 0;
+	while (j < map->size_col)
+	{
+		if (!is_valid_grid_char(grid_line[j], map))
+		{
+			map->is_valid = 0;
+			return (0);
+		}
+		map->map[row][j] = grid_line[j];
+		j++;
+	}
+	return (1);
+}
+
+int	fill_table(int file_d, t_map *map)
+{
+	char	*content;
+	int		i;
+
+	init_map_tables(map);
+	content = malloc((map->size_col + 1) * sizeof(char));
+	i = 0;
+	while ((read(file_d, content, map->size_col + 1)) > 0 && i < map->size_row)
+	{
+		if (content[map->size_col] != '\n')
+		{
+			map->is_valid = 0;
+			free(content);
+			return (0);
+		}
+		if (!fill_table_line(i, content, map))
+		{
+			free(content);
+			return (0);
+		}
+		i++;
+	}
+	free(content);
+	return (i == map->size_row);
 }
 
 int	init_dp_ctx(t_dp_ctx **dp_ctx)

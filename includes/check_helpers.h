@@ -10,15 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINT_UTILS_H
-# define PRINT_UTILS_H
+#ifndef CHECK_HELPERS_H
+# define CHECK_HELPERS_H
 
+# include "check.h"
 # include "global.h"
+# include "map_creator.h"
+# include "str_utils.h"
+# include <stdio.h>
 
-void	ft_putstr_error(char *str);
-void	ft_putstr(char *str);
-void	print_line(char *line, int line_size);
-void	ft_putchar(char c);
-void	ft_putnb(int nb);
+int		my_seek(int file_d, int offset);
+int		get_line_length(int file_d);
+void	read_first_line(int file_d, int line_len, t_map *map);
+int		read_first_grid_line(int file_d, t_map *map);
 
 #endif
