@@ -6,7 +6,7 @@
 /*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 21:17:09 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 22:19:56 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 22:57:01 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,54 +30,6 @@ char	*ft_cpy_w_malloc(char *str)
 	}
 	result[current] = '\0';
 	return (result);
-}
-
-char	**ft_split(char *str, char *separator)
-{
-	char	**tab;
-	int		size_tab;
-
-	size_tab = ft_count_multi_sep(str, separator);
-	tab = (char **)malloc(size_tab * sizeof(char *));
-	ft_split_second_part(str, separator, tab, 0);
-	return (tab);
-}
-
-void	ft_split_second_part(char *str, char *sep, char **tab, int curr_str)
-{
-	int	curr_tab_str;
-	int	l_start_pos;
-	int	l_current_index_tab;
-
-	curr_tab_str = 0;
-	l_start_pos = 0;
-	l_current_index_tab = 0;
-	while (str[curr_str] != '\0')
-	{
-		if (ft_is_sep(str[curr_str], sep) || str[curr_str + 1] == '\0')
-		{
-			if (str[curr_str + 1] == '\0')
-				curr_str++;
-			tab[l_current_index_tab] = malloc((curr_str - l_start_pos + 1)
-					* sizeof(char));
-			while (l_start_pos < curr_str)
-			{
-				tab[l_current_index_tab][curr_tab_str] = str[l_start_pos];
-				curr_tab_str++;
-				l_start_pos++;
-			}
-			tab[l_current_index_tab][curr_tab_str] = '\0';
-			if (str[curr_str] == '\\' && str[curr_str + 1] == 'n')
-			{
-				l_start_pos++;
-				curr_str++;
-			}
-			l_start_pos++;
-			l_current_index_tab++;
-			curr_tab_str = 0;
-		}
-		curr_str++;
-	}
 }
 
 int	ft_is_sep(char to_test, char *str_sep)
