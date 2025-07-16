@@ -6,7 +6,7 @@
 /*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:51:19 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 20:38:29 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 21:05:57 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main(int argc, char **argv)
 			ft_print_map(map, 0);
 		}
 		else
-			ft_error(ERROR_MAP_MSG);
+			ft_putstr_error(ERROR_MAP_MSG);
 		current++;
 	}
 }

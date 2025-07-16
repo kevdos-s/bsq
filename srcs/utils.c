@@ -1,79 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 17:30:26 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 20:08:07 by kevdos-s         ###   ########.fr       */
+/*   Created: 2025/07/16 21:17:09 by apisanel          #+#    #+#             */
+/*   Updated: 2025/07/16 21:17:10 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "str_utils.h"
-
-int	ft_error(char *msg)
-{
-	ft_putstr_error(msg);
-	ft_putchar('\n');
-	return (0);
-}
-
-void	ft_putstr_error(char *str)
-{
-	int	current;
-
-	current = 0;
-	while (str[current])
-	{
-		write(2, &str[current], 1);
-		current++;
-	}
-}
-
-void	ft_putstr(char *str)
-{
-	int	current;
-
-	current = 0;
-	while (str[current])
-	{
-		write(1, &str[current], 1);
-		current++;
-	}
-}
-
-void	print_line(char *line, int line_size)
-{
-	write(1, line, line_size);
-}
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-void	ft_putnb(int nb)
-{
-	if (nb == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return ;
-	}
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb = -(nb);
-	}
-	if (nb >= 0 && nb <= 9)
-	{
-		ft_putchar(nb + 48);
-	}
-	else
-	{
-		ft_putnb(nb / 10);
-		ft_putnb(nb % 10);
-	}
-}
 
 char	*ft_cpy_w_malloc(char *str)
 {
@@ -155,4 +90,30 @@ int	ft_is_sep(char to_test, char *str_sep)
 		current++;
 	}
 	return (0);
+}
+
+char	*ft_strconcat(char *s1, char *s2)
+{
+	int current;
+	int len_dest;
+	int result_len;
+	char *result;
+
+	len_dest = ft_strlength(s1);
+	result_len = len_dest + ft_strlength(s2);
+	result = malloc(result_len * sizeof(char));
+	current = 0;
+	while (s1[current])
+	{
+		result[current] = s1[current];
+		current++;
+	}
+	current = 0;
+	while (s2[current])
+	{
+		result[len_dest + current] = s2[current];
+		current++;
+	}
+	result[result_len] = '\0';
+	return (result);
 }
