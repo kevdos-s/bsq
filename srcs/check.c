@@ -6,7 +6,7 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 16:58:31 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 20:06:01 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 20:32:09 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int	fill_table_line(int row, char *grid_line, t_map *map)
 	j = 0;
 	while (j < map->size_col)
 	{
-		if (is_valid_grid_char(grid_line[j], map))
+		if (!is_valid_grid_char(grid_line[j], map))
 		{
 			map->is_valid = 0;
 			return (0);
@@ -118,7 +118,7 @@ int	fill_table_line(int row, char *grid_line, t_map *map)
 	return (1);
 }
 
-void	fill_table(int file_d, t_map *map)
+int	fill_table(int file_d, t_map *map)
 {
 	char	*content;
 	int		i;
@@ -126,22 +126,23 @@ void	fill_table(int file_d, t_map *map)
 	init_map_tables(map);
 	content = malloc((map->size_col + 1) * sizeof(char));
 	i = 0;
-	while ((read(file_d, content, map->size_col + 1)) > 0)
+	while ((read(file_d, content, map->size_col + 1)) > 0 && i < map->size_row)
 	{
 		if (content[map->size_col] != '\n')
 		{
 			map->is_valid = 0;
 			free(content);
-			return ;
+			return (0);
 		}
 		if (!fill_table_line(i, content, map))
 		{
 			free(content);
-			return ;
+			return (0);
 		}
 		i++;
 	}
 	free(content);
+	return (i == map->size_row);
 }
 
 void	ft_check_args_n_fill(char **args, int argc, t_map **map)
@@ -175,10 +176,44 @@ void	ft_check_args_n_fill(char **args, int argc, t_map **map)
 		close(file_d);
 		file_d = open(args[current_argv], O_RDONLY);
 		my_seek(file_d, first_line_len + 1);
-		fill_table(file_d, map[current]);
+		if (!fill_table(file_d, map[current]))
+		{
+			// TODO: map error;
+			map[current]->is_valid = 0;
+		}
+		else
+			map[current]->is_valid = 1;
 		// fill_map(all_content, map);
-		map[current]->is_valid = 1;
 		current_argv++;
 		current++;
 	}
+}
+
+void	ft_check_n_fill_content(int file_d, t_map *map)
+{
+	int		byte_read;
+	char	content[4096];
+	char	*all_content;
+
+	// char	*temp;
+	// int		count_lines;
+	// int		i;
+	// i = 0;
+	// count_lines = 0;
+	while ((byte_read = read(file_d, content, 1)) > 0)
+	{
+		if (content[0] == '\n')
+			break ;
+		// i++;
+	}
+	// i += 1;
+	all_content = malloc(1 * sizeof(char));
+	all_content[0] = '\0';
+	if (byte_read == -1)
+	{
+		map->is_valid = 0;
+		return ;
+	}
+	fill_map(all_content, map);
+	free(all_content);
 }

@@ -6,7 +6,7 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 20:55:25 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 20:06:28 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 20:22:43 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,26 +121,23 @@ int	ft_count_nb(char *str)
 void	ft_print_map(t_map *map, int print_dp)
 {
 	int	current_line;
+	int	current_col;
 
-	(void)print_dp;
-	// int	current_col;
 	current_line = 0;
 	while (current_line < map->size_row)
 	{
-		// current_col = 0;
-		print_line(map->map[current_line], map->size_col);
-		// while (current_col < map->size_col)
-		// {
-		// 	if (print_dp)
-		// 	{
-		// 		ft_putnb(map->dp_map[current_line][current_col]);
-		// 	}
-		// 	else
-		// 	{
-		// 		ft_putchar(map->map[current_line][current_col]);
-		// 	}
-		// 	current_col++;
-		// }
+		current_col = 0;
+		if (print_dp)
+		{
+			while (current_col < map->size_col)
+			{
+				if (print_dp)
+					ft_putnb(map->dp_map[current_line][current_col]);
+				current_col++;
+			}
+		}
+		else
+			print_line(map->map[current_line], map->size_col);
 		ft_putchar('\n');
 		current_line++;
 	}

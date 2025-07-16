@@ -26,7 +26,7 @@
       "request": "launch",
       "program": "${workspaceFolder}/bsq",
       "args": [
-        "${workspaceFolder}/maps/test_map.txt"
+        "${workspaceFolder}/maps/example_map.txt"
       ],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",

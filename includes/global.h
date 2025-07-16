@@ -6,7 +6,7 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:51:16 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 20:07:57 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 20:09:22 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,6 @@ typedef struct s_map
 	int		**dp_map;
 	char	**map;
 }			t_map;
-
-// check.c
-void		ft_check_args_n_fill(char **args, int argc, t_map **map);
-void		ft_check_n_fill_content(int file_d, t_map *map);
 
 // util
 int			ft_error(char *msg);
