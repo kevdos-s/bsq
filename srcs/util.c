@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
+/*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 17:30:26 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 17:01:02 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 19:32:59 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,23 @@ void	ft_putstr_error(char *str)
 		write(2, &str[current], 1);
 		current++;
 	}
+}
+
+void	ft_putstr(char *str)
+{
+	int	current;
+
+	current = 0;
+	while (str[current])
+	{
+		write(1, &str[current], 1);
+		current++;
+	}
+}
+
+void	print_line(char *line, int line_size)
+{
+	write(1, line, line_size);
 }
 
 void	ft_putchar(char c)

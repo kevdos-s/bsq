@@ -6,7 +6,7 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:51:16 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 12:57:07 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 19:33:32 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ char		*ft_cpy_w_malloc(char *str);
 int			ft_strlength(char *str);
 char		**ft_split(char *str, char separator);
 void		ft_split_second_part(char *str, char sep, char **tab, int curr_str);
+void		ft_putstr(char *str);
+void		print_line(char *line, int line_size);
 
 # define ERROR_CANNOT_READ_FILE "cannot read file"
 # define ERROR_MAP_MSG "map error"
