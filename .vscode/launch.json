@@ -25,9 +25,7 @@
       "type": "cppdbg",
       "request": "launch",
       "program": "${workspaceFolder}/bsq",
-      "args": [
-        "${workspaceFolder}/maps/example_map.txt"
-      ],
+      "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],

@@ -6,10 +6,11 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 19:38:26 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 19:04:30 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 21:30:28 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "check.h"
 #include "global.h"
 #include "map_creator.h"
 #include "str_utils.h"
@@ -25,6 +26,7 @@ void	fill_map(char *content_file, t_map *map)
 	current_map_row = 0;
 	nb_lines = ft_count_multi_sep(content_file, "\n\\");
 	lines_of_file = ft_split(content_file, "\n\\");
+	init_map_tables(map);
 	current_line = 1;
 	// TODO check first line is correct
 	ft_fill_first_line(lines_of_file[0], map);
@@ -35,10 +37,10 @@ void	fill_map(char *content_file, t_map *map)
 	{
 		map->map[current_map_row] = malloc(map->size_col * sizeof(char));
 		i = 0;
-		while (lines_of_file[current_line][i])
+		if (!fill_table_line(current_map_row, lines_of_file[current_line], map))
 		{
-			map->map[current_map_row][i] = lines_of_file[current_line][i];
-			i++;
+			free(content_file);
+			return (0);
 		}
 		current_line++;
 		current_map_row++;

@@ -6,7 +6,7 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 16:58:31 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 20:32:09 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 21:17:06 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,24 +194,27 @@ void	ft_check_n_fill_content(int file_d, t_map *map)
 	int		byte_read;
 	char	content[4096];
 	char	*all_content;
+	char	*temp;
 
-	// char	*temp;
-	// int		count_lines;
-	// int		i;
-	// i = 0;
-	// count_lines = 0;
-	while ((byte_read = read(file_d, content, 1)) > 0)
-	{
-		if (content[0] == '\n')
-			break ;
-		// i++;
-	}
-	// i += 1;
 	all_content = malloc(1 * sizeof(char));
 	all_content[0] = '\0';
+	while ((byte_read = read(file_d, content, 4096)) > 0)
+	{
+		if (content[0] == '\0')
+		{
+			map->is_valid = 0;
+			return ;
+		}
+		temp = ft_cpy_w_malloc(all_content);
+		free(all_content);
+		all_content = ft_strconcat(temp, content);
+		free(temp);
+	}
+	// i += 1;
 	if (byte_read == -1)
 	{
 		map->is_valid = 0;
+		free(all_content);
 		return ;
 	}
 	fill_map(all_content, map);
