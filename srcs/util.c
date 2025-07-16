@@ -6,7 +6,7 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 17:30:26 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 11:52:02 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 12:56:47 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,28 @@ void	ft_putstr_error(char *str)
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
+}
+void	ft_putnb(int nb)
+{
+	if (nb == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return ;
+	}
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -(nb);
+	}
+	if (nb >= 0 && nb <= 9)
+	{
+		ft_putchar(nb + 48);
+	}
+	else
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
 }
 
 char	*ft_cpy_w_malloc(char *str)

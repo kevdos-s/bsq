@@ -6,12 +6,13 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:51:19 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 11:58:08 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 12:46:33 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "check.h"
 #include "solve.h"
+#include "str_utils.h"
 
 int	main(int argc, char **argv)
 {
@@ -33,6 +34,7 @@ int	main(int argc, char **argv)
 	{
 		if (map[current].is_valid)
 		{
+			ft_print_map(map, 0);
 			// solve(&map[current], , map[current].size_row, map[current].size_col);
 		}
 		else

@@ -6,7 +6,7 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 19:38:26 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 11:51:04 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 12:49:34 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	fill_map(char *content_file, t_map *map)
 		current_line++;
 		current_map_row++;
 	}
+	map->is_valid = 1;
 }
 void	ft_fill_first_line(char *first_line, t_map *map)
 {

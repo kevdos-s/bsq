@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   global.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
+/*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:51:16 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/15 20:44:49 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 12:57:07 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void		ft_check_n_fill_content(int file_d, t_map *map);
 int			ft_error(char *msg);
 void		ft_putstr_error(char *str);
 void		ft_putchar(char c);
+void		ft_putnb(int nb);
 char		*ft_cpy_w_malloc(char *str);
 int			ft_strlength(char *str);
 char		**ft_split(char *str, char separator);
