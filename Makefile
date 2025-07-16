@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+         #
+#    By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/08 17:34:20 by apisanel          #+#    #+#              #
-#    Updated: 2025/07/16 08:49:26 by kevdos-s         ###   ########.fr        #
+#    Updated: 2025/07/16 13:53:05 by apisanel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,5 +31,8 @@ fclean:	clean
 		${RM} ${NAME}
 
 re:		fclean all
+
+run_example: all
+		./${NAME} maps/example_map.txt
 
 .PHONY: all clean fclean re ${NAME}

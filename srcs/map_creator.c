@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   map_creator.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 19:38:26 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 13:01:18 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 14:08:31 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "global.h"
-#include "str_utils.h"
 #include "map_creator.h"
+#include "str_utils.h"
 
 void	fill_map(char *content_file, t_map *map)
 {
@@ -47,12 +47,11 @@ void	fill_map(char *content_file, t_map *map)
 }
 void	ft_fill_first_line(char *first_line, t_map *map)
 {
-	int index_nb_stop;
+	int	index_nb_stop;
 
 	index_nb_stop = ft_count_nb(first_line);
 	map->size_row = ft_atoi(first_line);
-	map->empty_char = first_line[index_nb_stop + 1];
-	map->obstacle_char = first_line[index_nb_stop + 2];
-	map->fill_char = first_line[index_nb_stop + 3];
-
+	map->empty_char = first_line[index_nb_stop];
+	map->obstacle_char = first_line[index_nb_stop + 1];
+	map->fill_char = first_line[index_nb_stop + 2];
 }

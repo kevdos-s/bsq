@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 17:30:26 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 12:56:47 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 13:52:12 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void	ft_putnb(int nb)
 	}
 	else
 	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
+		ft_putnb(nb / 10);
+		ft_putnb(nb % 10);
 	}
 }
 

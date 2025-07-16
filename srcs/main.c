@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:51:19 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 13:25:37 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 14:27:18 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ int	main(int argc, char **argv)
 	{
 		if (map[current].is_valid)
 		{
+			ft_print_map(map, 0);
 			solve(&map[current]);
+			ft_print_map(map, 1);
 			ft_print_map(map, 0);
 		}
 		else

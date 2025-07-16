@@ -6,7 +6,7 @@
 /*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 16:43:37 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/15 19:57:17 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 13:49:13 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,15 @@ void	init_dp_grid(t_map *map_ctx)
 		}
 		i++;
 	}
+}
+
+int	init_dp_ctx(t_dp_ctx **dp_ctx)
+{
+	*dp_ctx = malloc(sizeof(t_dp_ctx));
+	if (!*dp_ctx)
+		return (0);
+	(*dp_ctx)->max_size = 0;
+	(*dp_ctx)->max_i = 0;
+	(*dp_ctx)->max_j = 0;
+	return (1);
 }
