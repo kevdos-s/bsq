@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
+/*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 17:30:26 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 13:52:12 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 18:18:01 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ char	*ft_cpy_w_malloc(char *str)
 
 	len_str = ft_strlength(str);
 	result = malloc(len_str * sizeof(char));
+	if (len_str == 0)
+		result[0] = '\0';
 	current = 0;
 	while (str[current])
 	{
@@ -76,18 +78,18 @@ char	*ft_cpy_w_malloc(char *str)
 	return (result);
 }
 
-char	**ft_split(char *str, char separator)
+char	**ft_split(char *str, char *separator)
 {
 	char	**tab;
 	int		size_tab;
 
-	size_tab = ft_count_sep(str, separator);
+	size_tab = ft_count_multi_sep(str, separator);
 	tab = (char **)malloc(size_tab * sizeof(char *));
 	ft_split_second_part(str, separator, tab, 0);
 	return (tab);
 }
 
-void	ft_split_second_part(char *str, char sep, char **tab, int curr_str)
+void	ft_split_second_part(char *str, char *sep, char **tab, int curr_str)
 {
 	int	curr_tab_str;
 	int	l_start_pos;
@@ -98,7 +100,7 @@ void	ft_split_second_part(char *str, char sep, char **tab, int curr_str)
 	l_current_index_tab = 0;
 	while (str[curr_str] != '\0')
 	{
-		if (str[curr_str] == sep || str[curr_str + 1] == '\0')
+		if (ft_is_sep(str[curr_str], sep) || str[curr_str + 1] == '\0')
 		{
 			if (str[curr_str + 1] == '\0')
 				curr_str++;
@@ -111,10 +113,29 @@ void	ft_split_second_part(char *str, char sep, char **tab, int curr_str)
 				l_start_pos++;
 			}
 			tab[l_current_index_tab][curr_tab_str] = '\0';
+			if (str[curr_str] == '\\' && str[curr_str + 1] == 'n')
+			{
+				l_start_pos++;
+				curr_str++;
+			}
 			l_start_pos++;
 			l_current_index_tab++;
 			curr_tab_str = 0;
 		}
 		curr_str++;
 	}
+}
+
+int	ft_is_sep(char to_test, char *str_sep)
+{
+	int	current;
+
+	current = 0;
+	while (str_sep[current])
+	{
+		if (str_sep[current] == to_test)
+			return (1);
+		current++;
+	}
+	return (0);
 }

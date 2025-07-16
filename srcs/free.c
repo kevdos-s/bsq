@@ -6,7 +6,7 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:02:07 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 16:32:57 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 16:43:52 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	ft_free_t_map(t_map *map)
 	i = 0;
 	while (i < map->size_row)
 	{
-		// free(map->dp_map[i]);
-		// free(map->map);
+		free(map->dp_map[i]);
+		free(map->map);
 		i++;
 	}
-	// free(map->dp_map);
+	free(map->dp_map);
 }

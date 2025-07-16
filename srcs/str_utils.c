@@ -6,7 +6,7 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 20:55:25 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 16:17:57 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 18:14:50 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,26 @@ int	ft_count_sep(char *str, char sep)
 		{
 			result++;
 		}
+		i++;
+	}
+	return (result);
+}
+
+int	ft_count_multi_sep(char *str, char *sep)
+{
+	int	i;
+	int	result;
+
+	i = 0;
+	result = 0;
+	while (str[i])
+	{
+		if (ft_is_sep(str[i], sep) || str[i + 1] == '\0')
+		{
+			result++;
+		}
+		if (str[i] == '\\' && str[i + 1] == 'n')
+			i++;
 		i++;
 	}
 	return (result);

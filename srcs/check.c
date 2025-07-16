@@ -6,7 +6,7 @@
 /*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 16:58:31 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/16 16:33:07 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 17:17:46 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,9 @@
 
 void	ft_check_args_n_fill(char **args, int argc, t_map **map)
 {
-	int		current;
-	int		current_argv;
-	int		file_d;
-	int		byte_read;
-	char	*content;
-	char	*all_content;
-	char	*temp;
+	int	current;
+	int	current_argv;
+	int	file_d;
 
 	current = 0;
 	current_argv = 1;
@@ -36,23 +32,7 @@ void	ft_check_args_n_fill(char **args, int argc, t_map **map)
 		}
 		else
 		{
-			all_content = malloc(1 * sizeof(char));
-			all_content[0] = '\0';
-			content = malloc(25005008 * sizeof(char));
-			while ((byte_read = read(file_d, content, 25005008)) > 0)
-			{
-				temp = ft_cpy_w_malloc(all_content);
-				free(all_content);
-				all_content = ft_strdup(temp, content);
-				free(temp);
-			}
-			if (byte_read == -1)
-			{
-				map[current]->is_valid = 0;
-				return ;
-			}
-			fill_map(all_content, map[current]);
-			// free(all_content);
+			ft_check_n_fill_content(file_d, map[current]);
 		}
 		close(file_d);
 		current++;
@@ -72,6 +52,11 @@ void	ft_check_n_fill_content(int file_d, t_map *map)
 	content = malloc(4096 * sizeof(char));
 	while ((byte_read = read(file_d, content, 4096)) > 0)
 	{
+		if (content == NULL)
+		{
+			map->is_valid = 0;
+			return ;
+		}
 		temp = ft_cpy_w_malloc(all_content);
 		free(all_content);
 		all_content = ft_strdup(temp, content);
