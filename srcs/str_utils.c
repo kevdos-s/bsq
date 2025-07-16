@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 20:55:25 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 20:22:43 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 21:00:06 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,55 +23,6 @@ int	ft_strlength(char *str)
 		current++;
 	}
 	return (current);
-}
-
-/**
- * Function taht concatenates two strings
- * S1 is the prefix
- * S2 is the suffix
- */
-char	*ft_strconcat(char *s1, char *s2)
-{
-	int		current;
-	int		len_dest;
-	int		result_len;
-	char	*result;
-
-	len_dest = ft_strlength(s1);
-	result_len = len_dest + ft_strlength(s2);
-	result = malloc(result_len * sizeof(char));
-	current = 0;
-	while (s1[current])
-	{
-		result[current] = s1[current];
-		current++;
-	}
-	current = 0;
-	while (s2[current])
-	{
-		result[len_dest + current] = s2[current];
-		current++;
-	}
-	result[result_len] = '\0';
-	return (result);
-}
-
-int	ft_count_sep(char *str, char sep)
-{
-	int	i;
-	int	result;
-
-	i = 0;
-	result = 0;
-	while (str[i])
-	{
-		if (str[i] == sep || str[i + 1] == '\0')
-		{
-			result++;
-		}
-		i++;
-	}
-	return (result);
 }
 
 int	ft_count_multi_sep(char *str, char *sep)
@@ -93,6 +44,7 @@ int	ft_count_multi_sep(char *str, char *sep)
 	}
 	return (result);
 }
+
 int	ft_natoi(char *str, int limit)
 {
 	int	result;
@@ -107,6 +59,7 @@ int	ft_natoi(char *str, int limit)
 	}
 	return (result);
 }
+
 int	ft_count_nb(char *str)
 {
 	int	current;
@@ -118,6 +71,7 @@ int	ft_count_nb(char *str)
 	}
 	return (current);
 }
+
 void	ft_print_map(t_map *map, int print_dp)
 {
 	int	current_line;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_utils.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:51:16 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/16 20:07:55 by kevdos-s         ###   ########.fr       */
+/*   Updated: 2025/07/16 21:00:12 by apisanel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include "global.h"
 
-char	*ft_strconcat(char *dest, char *src);
-int		ft_count_sep(char *str, char sep);
 int		ft_natoi(char *str, int limit);
 int		ft_count_nb(char *str);
 void	ft_print_map(t_map *map, int print_dp);
