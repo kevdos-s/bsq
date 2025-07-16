@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
+/*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 20:55:25 by apisanel          #+#    #+#             */
-/*   Updated: 2025/07/15 21:03:33 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 09:58:09 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,20 @@ int	ft_count_sep(char *str, char sep)
 			result++;
 		}
 		i++;
+	}
+	return (result);
+}
+int ft_atoi(char *str)
+{
+	int result;
+	int current;
+
+	result = 0;
+	current = 0;
+	while (str[current] >= '0' && str[current] <= '9')
+	{
+		result = (result * 10) + (str[current] - 48);
+		current++;
 	}
 	return (result);
 }

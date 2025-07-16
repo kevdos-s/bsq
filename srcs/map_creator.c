@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_creator.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
+/*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 19:38:26 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/15 21:00:36 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 09:24:29 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	fill_map(char *content_file, t_map *map)
 	lines_of_file = ft_split(content_file, '\n');
 	current_line = 1;
 	// TODO check first line is correct
-	map->size_row = lines_of_file[0][0];
+	map->size_row = ft_atoi(lines_of_file[0]);
 	map->empty_char = lines_of_file[0][1];
 	map->obstacle_char = lines_of_file[0][2];
 	map->fill_char = lines_of_file[0][3];

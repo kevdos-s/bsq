@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+        */
+/*   By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 16:58:31 by kevdos-s          #+#    #+#             */
-/*   Updated: 2025/07/15 20:58:10 by apisanel         ###   ########.fr       */
+/*   Updated: 2025/07/16 10:49:51 by kevdos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	ft_check_n_fill_content(int file_d, t_map *map)
 	char	*all_content;
 	char	*temp;
 
+	all_content = malloc(1 * sizeof(char));
+	all_content[0] = '\0';
 	content = malloc(4096 * sizeof(char));
 	while ((byte_read = read(file_d, content, 4096)) > 0)
 	{

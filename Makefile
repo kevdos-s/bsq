@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: apisanel <apisanel@students.42lausanne.    +#+  +:+       +#+         #
+#    By: kevdos-s <kevdos-s@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/08 17:34:20 by apisanel          #+#    #+#              #
-#    Updated: 2025/07/15 21:02:45 by apisanel         ###   ########.fr        #
+#    Updated: 2025/07/16 08:49:26 by kevdos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS = srcs/arguments.c srcs/array_helpers.c srcs/bsq.c srcs/check.c srcs/free_g
 OBJS = ${SRCS:.c=.o}
 CC = gcc
 RM		= rm -f
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 .c.o:
 		${CC} ${CFLAGS} -I includes -c $< -o ${<:.c=.o}
